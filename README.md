@@ -157,11 +157,42 @@ Outputs are saved in ```--outdir``` (e.g., ```/workspace/results```):
    - ```functional_annotation/phobius/```, ```interproscan/```, ```eggnog/```: Tool-specific results.
 - **Logs**: ```report.html```, ```timeline.html```, ```dag.dot``` for pipeline execution details.
 
+## Run Modes
+
+- **prediction_only**: Runs BRAKER3 and funannotate predictions, compares BUSCO scores.
+- **annotation_only**: Performs functional annotation on existing BRAKER3 or funannotate predictions (specified by ```--annotation_prediction```).
+- **both**: Runs predictions and annotates the user-specified or best BUSCO-scored prediction.
+
+## Notes
+
+- **RNA-Seq Absence**: If ```--rnaseq_dir``` is not specified or the directory doesn’t exist, the pipeline skips RNA-Seq processing (```CleanReads```, ```IndexGenome```, ```MapReads```, ```MergeBAMs```, ```StringTie```, ```GTFtoFasta```, ```FunannotateTrain```) and runs predictions using only genome, masked genome, and protein evidence. BRAKER3 and funannotate will omit RNA-Seq-related options (e.g., ```--bam```, ```--stringtie```).
+- **BRAKER3 GTF**: Without RNA-Seq, BRAKER3 may still produce a GTF using protein evidence, but UTR addition is skipped.
+- **Funannotate**: Without RNA-Seq, funannotate relies on protein evidence and tRNA annotations, which may reduce prediction accuracy.
+- **BUSCO Comparison**: Always performed to compare BRAKER3 and funannotate predictions, even without RNA-Seq.
+
+## Troubleshooting
+
+- **Docker Errors**: Ensure Docker is running and your user is in the ```docker``` group (```sudo usermod -aG docker $USER```).
+- **File Not Found**: Verify input paths are correct relative to ```--docker_mount_base```. Check file permissions.
+- **BRAKER3 Fails**: Ensure ```--busco_lineage``` matches your organism. Check ```results/braker3/``` logs. Without RNA-Seq, predictions may be less accurate.
+- **Resource Issues**: Increase ```--threads``` or ```--memory``` for large datasets. Monitor ```report.html```.
+- **Funannotate Database**: Ensure --funannotate_db points to a valid database directory.
+
+## License
+
+This project is licensed under the MIT License. See the LICENSE file for details.
+
+## Acknowledgments
+This work is supported through the Sequencing analysis (SequAna) core facility at the University of Konstanz [https://www.biologie.uni-konstanz.de/sequana/]
+
+**Tools**: BRAKER3, funannotate, BUSCO, Trimmomatic, STAR, StringTie, tRNAscan-SE, Phobius, InterProScan, eggNOG-mapper.
+**Nextflow**: For workflow orchestration.
+**Docker**: For reproducible environments.
 
 
+For more information or help, please contact [abdoallah.sharaf@uni-konstanz.de].
 
-
-
+This is the complete README in markdown format, covering everything from installation to usage, including file formats and options. Feel free to let me know if you'd like to make any additional changes or if there's something else you'd like to add!
 
 
 
