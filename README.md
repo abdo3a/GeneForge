@@ -14,11 +14,8 @@ A Nextflow Pipeline for Gene Prediction and Functional Annotation
 
 ## Prerequisites
 
-- **Nextflow**: Version ≥ 22.04 (install via wget -qO- https://get.nextflow.io | bash).
-````bash
-wget -qO- https://get.nextflow.io | bash
-````
-- **Docker**: Required for containerized execution. Install via your package manager or see [Singularity documentation](https://sylabs.io/docs/).
+- **Nextflow**: Version ≥ 22.04 
+- **Singularity**: Required for containerized execution. Install via your package manager or see [Singularity documentation](https://sylabs.io/docs/).
 - **System**: Linux/Unix-based system with sufficient RAM (≥16GB recommended) and CPU cores (≥8 recommended).
 - **Disk Space**: Depends on genome size and RNA-Seq data; 100GB+ recommended.
 - **Required Input Files**:
