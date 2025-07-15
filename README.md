@@ -32,7 +32,6 @@ A Nextflow Pipeline for Gene Prediction and Functional Annotation
 1. **Clone the Repository**:
 ````bash
 git clone https://github.com/yourusername/GeneForge.git
-cd GeneForge
 ````
 2. Ensure Singularity is installed and configured.
 3. Provide paths to required input files (see Input Files).
