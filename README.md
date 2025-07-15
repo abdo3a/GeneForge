@@ -64,7 +64,7 @@ Format:
 Example:
 ````csv
 name,species,organism,busco_db,busco_db_fun,genome_masked,genome_unmasked,protein_evidence,genemark_dir
-Cther,Cladocopium thermophilum,other,alveolata_odb10,protists,/path/to/Cther_V2.fasta.masked,/path/to/Cther_V2.fasta,/path/to/Alveolata.fa,/path/to/genemark
+Cther,Cladocopium thermophilum,other,alveolata_odb10,protists,/path/to/Cther.fasta.masked,/path/to/Cther.fasta,/path/to/Alveolata.fa,/path/to/genemark
 ````
 **Note**: ```genemark_dir``` must contain:
 - ```gm_key_64.gz``` (GeneMark license key).
