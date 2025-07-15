@@ -78,7 +78,7 @@ Format:
 Example:
 ````csv
 rnaseq_dir,funanno_DB,eggnog_DB,stranded,nanopore_mrna,pacbio_isoseq,gc_probability,func_tool_dir
-/path/to/RNA_Cther,/path/to/funannotate_DB,/path/to/eggnog_DB,reverse,,,0.6377,/path/to/tools
+/path/to/RNA_Cther,/path/to/funannotate_DB,/path/to/eggnog_DB,reverse,/path/to/ONT.fastq.gz,/path/to/pacbio.fastq.gz,0.6377,/path/to/tools
 ````
 **Note**: For functional annotation, ```func_tool_dir``` must contain:
 - ```phobius101_linux.tgz``` (**Phobius tarball**).
