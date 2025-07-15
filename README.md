@@ -54,7 +54,6 @@ nextflow run main_full.nf \
 - ```--mode```: ```both```, ```braker```, or ```funannotate```.
 - ```--func_annotation```: Enable or disable functional annotation.
 - ```--outdir```: Output directory (default: ```results```).
-- ```--rnaseq_stranded```: RNA-seq strandedness (```forward```, ```reverse```).
 
 ## Input Files
 
