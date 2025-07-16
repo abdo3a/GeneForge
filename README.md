@@ -126,8 +126,9 @@ flowchart TD
     F --> G1 & I
     G1 --> H["FUNCTIONAL_ANNOTATION<br>Functional Enrichment &amp; Domain Assignment"] & I
     H --> I
-    n1["Genome assembly"] --> D
+    n1["Genome assembly"] -.-> D
     n2["RNASeq reads"] -.-> D
+    n1 --> E2
     B@{ shape: rounded}
     n1@{ shape: rounded}
     n2@{ shape: rounded}
@@ -165,6 +166,7 @@ flowchart TD
     linkStyle 12 stroke:#E1BEE7,fill:none
     linkStyle 13 stroke:#E1BEE7,fill:none
     linkStyle 14 stroke:#FFF9C4,fill:none
+
 ```
 
 ## Debugging
