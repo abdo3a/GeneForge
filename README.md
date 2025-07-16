@@ -111,7 +111,32 @@ rnaseq_dir,funanno_DB,eggnog_DB,stranded,nanopore_mrna,pacbio_isoseq,gc_probabil
 6. **Functional Annotation**: ```FUNCTIONAL_ANNOTATION``` adds functional annotations using funannotate.
 
 ```mermaid
-
+---
+config:
+  layout: elk
+  theme: neo
+  look: neo
+---
+flowchart TD
+    B["masked Genome assembly"] --> C["TRNASCAN_SE<br>tRNA Scanning"] & E2["FUNANNOTATE<br>Annotation with RNA-seq, Proteins, tRNAs"] & E1["BRAKER_RUN<br>Gene Prediction with RNA-seq &amp; Proteins"]
+    D["RNASEQ_PROCESSING<br><br>"] --> E1 & E2 & E1
+    C --> E2
+    E1 --> F["BRAKER_POST<br>Refine BRAKER Outputs"]
+    E2 --> G1["COMPARE_BUSCO<br>Compare BUSCO Scores"] & I["Results"]
+    F --> G1 & I
+    G1 --> H["FUNCTIONAL_ANNOTATION<br>Functional Enrichment &amp; Domain Assignment"] & I
+    H --> I
+    n1["Genome assembly"] --> D
+    n2["RNASeq reads"] -.-> D
+    B@{ shape: rounded}
+    n1@{ shape: rounded}
+    n2@{ shape: rounded}
+     B:::Sky
+     I:::Aqua
+     n1:::Sky
+     n2:::Sky
+    classDef Sky stroke-width:1px, stroke-dasharray:none, stroke:#374D7C, fill:#E2EBFF, color:#374D7C
+    classDef Aqua stroke-width:1px, stroke-dasharray:none, stroke:#46EDC8, fill:#DEFFF8, color:#378E7A
 ```
 
 ## Debugging
