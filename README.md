@@ -110,64 +110,8 @@ rnaseq_dir,funanno_DB,eggnog_DB,stranded,nanopore_mrna,pacbio_isoseq,gc_probabil
 5. **Comparison**: ```COMPARE_BUSCO``` evaluates Funannotate vs. BRAKER3 using BUSCO scores.
 6. **Functional Annotation**: ```FUNCTIONAL_ANNOTATION``` adds functional annotations using funannotate.
 
-```mermaid
----
-config:
-  layout: elk
-  theme: neo
-  look: neo
----
-flowchart TD
-    B["masked Genome assembly"] --> C["TRNASCAN_SE<br>tRNA Scanning"] & E2["FUNANNOTATE<br>Annotation with RNA-seq, Proteins, tRNAs"] & E1["BRAKER_RUN<br>Gene Prediction with RNA-seq &amp; Proteins"]
-    D["RNASEQ_PROCESSING<br><br>"] -.-> E2 & E1 & I["Results"]
-    C --> E2
-    E1 --> F["BRAKER_POST<br>Refine BRAKER Outputs"]
-    E2 --> G1["COMPARE_BUSCO<br>Compare BUSCO Scores"] & I
-    F --> G1 & I
-    G1 --> H["FUNCTIONAL_ANNOTATION<br>Functional Enrichment &amp; Domain Assignment"] & I
-    H --> I
-    n1["Genome assembly"] -.-> D
-    n2["RNASeq reads"] -.-> D
-    n1 --> E2
-    B@{ shape: rounded}
-    n1@{ shape: rounded}
-    n2@{ shape: rounded}
-     B:::Sky
-     C:::Ash
-     E2:::Peach
-     E1:::Rose
-     D:::Pine
-     I:::Aqua
-     F:::Rose
-     H:::Class_02
-     n1:::Sky
-     n2:::Sky
-    classDef Sky stroke-width:1px, stroke-dasharray:none, stroke:#374D7C, fill:#E2EBFF, color:#374D7C
-    classDef Aqua stroke-width:1px, stroke-dasharray:none, stroke:#46EDC8, fill:#DEFFF8, color:#378E7A
-    classDef Pine stroke-width:1px, stroke-dasharray:none, stroke:#254336, fill:#27654A, color:#FFFFFF
-    classDef Rose stroke-width:1px, stroke-dasharray:none, stroke:#FF5978, fill:#FFDFE5, color:#8E2236
-    classDef Ash stroke-width:1px, stroke-dasharray:none, stroke:#999999, fill:#EEEEEE, color:#000000
-    classDef Peach stroke-width:1px, stroke-dasharray:none, stroke:#FBB35A, fill:#FFEFDB, color:#8F632D
-    classDef Class_02 stroke:#FFD600, fill:#FFF9C4
-    style E2 color:#000000
-    style E1 color:#000000
-    style D color:#000000
-    style F color:#000000
-    style G1 fill:#E1BEE7
-    linkStyle 3 stroke:#00C853,fill:none
-    linkStyle 4 stroke:#00C853,fill:none
-    linkStyle 5 stroke:#00C853,fill:none
-    linkStyle 6 stroke:#757575,fill:none
-    linkStyle 7 stroke:#FFCDD2,fill:none
-    linkStyle 8 stroke:#FFE0B2,fill:none
-    linkStyle 9 stroke:#FFE0B2,fill:none
-    linkStyle 10 stroke:#FFCDD2,fill:none
-    linkStyle 11 stroke:#FFCDD2,fill:none
-    linkStyle 12 stroke:#E1BEE7,fill:none
-    linkStyle 13 stroke:#E1BEE7,fill:none
-    linkStyle 14 stroke:#FFF9C4,fill:none
+![GeneForge Workflow Overview](workflow.png)
 
-```
 
 ## Debugging
 Check logs for errors:
